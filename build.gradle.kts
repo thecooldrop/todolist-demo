@@ -3,6 +3,7 @@ plugins {
     idea
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "com.github.thecooldrop"
@@ -51,4 +52,14 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+jib {
+    from {
+        image = "eclipse-temurin:21-jre-alpine"
+    }
+    to {
+        image = "thecooldrop/todolist"
+        tags = setOf("latest")
+    }
 }
