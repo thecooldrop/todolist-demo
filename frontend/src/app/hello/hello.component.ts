@@ -17,8 +17,8 @@ export class HelloComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.httpClient.get<string>("http://localhost:9080/hello").subscribe((response: string) => {
-      this.message = response;
+    this.httpClient.get("http://localhost:9080/hello", { responseType: 'text' }).subscribe((response) => {
+      this.message = response as string;
     });
   }
 
