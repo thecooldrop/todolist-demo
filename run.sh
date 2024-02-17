@@ -7,4 +7,4 @@
 ./gradlew jibDockerBuild
 
 # Run Docker Compose
-docker compose up -d
+docker compose up --build -d
